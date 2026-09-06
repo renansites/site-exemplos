@@ -1,7 +1,0 @@
-EXPORTAÇÃO ESTÁTICA — LANDING PAGE ADVOCACIA
-
-Para abrir:
-1. Extraia esta pasta, se necessário.
-2. Clique duas vezes em index.html.
-
-A página foi preparada com caminhos relativos e imagens locais para funcionar diretamente no navegador, sem Vite ou servidor de desenvolvimento.
