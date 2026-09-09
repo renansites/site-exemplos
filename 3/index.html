@@ -10,15 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#F7F4EC;
-  --cream-2:#EFEAE0;
-  --ink:#1B231F;
-  --ink-soft:#4A544D;
-  --teal:#2F6F5E;
-  --teal-dark:#1F4B3F;
-  --teal-light:#DCEAE4;
+  --cream:#0E1E19;
+  --cream-2:#122019;
+  --surface:#152A22;
+  --ink:#EDF2EF;
+  --ink-soft:#9FB3AA;
+  --teal:#2F9C7C;
+  --teal-dark:#1B5C49;
+  --teal-light:#1E3B32;
   --gold:#C79A56;
-  --line:#E1DBCB;
+  --line:#24463A;
   --radius:6px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -53,16 +54,12 @@ img{max-width:100%;display:block}
 
 /* ---------- Header ---------- */
 header{
-  position:sticky;top:0;z-index:500;background:rgba(247,244,236,.88);
+  position:sticky;top:0;z-index:500;background:rgba(14,30,25,.9);
   backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
 }
 .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
 .logo{display:flex;align-items:center;gap:10px}
-.logo-mark{
-  width:38px;height:38px;border-radius:50%;background:var(--teal);
-  display:flex;align-items:center;justify-content:center;color:#fff;
-  font-family:'Fraunces',serif;font-size:17px;flex:none;
-}
+.logo-mark{width:38px;height:38px;flex:none}
 .logo-text{font-family:'Fraunces',serif;font-size:19px;letter-spacing:.01em;line-height:1.1}
 .logo-text small{display:block;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-top:2px}
 .nav-links{display:flex;gap:36px;font-size:14px;font-weight:600}
@@ -75,7 +72,7 @@ header{
 .hero{position:relative;padding:88px 0 72px;overflow:hidden}
 .hero-blob{
   position:absolute;top:-160px;right:-160px;width:640px;height:640px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%, var(--teal-light), transparent 70%);
+  background:radial-gradient(circle at 35% 35%, rgba(47,156,124,.16), transparent 70%);
   pointer-events:none;
 }
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
@@ -87,19 +84,25 @@ header{
 .hero-trust div{font-size:13px;color:var(--ink-soft)}
 .hero-trust strong{display:block;font-family:'Fraunces',serif;font-size:22px;color:var(--ink);font-weight:500}
 
-.hero-visual{position:relative;aspect-ratio:1/1.05;border-radius:16px;overflow:hidden;
-  background:linear-gradient(155deg,var(--teal) 0%,var(--teal-dark) 100%);
-  display:flex;align-items:center;justify-content:center;
+.hero-visual{position:relative;aspect-ratio:1/1.05;border-radius:16px;overflow:hidden;cursor:pointer;
+  background:var(--surface);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;user-select:none;
 }
-.hero-visual svg{width:62%;height:62%}
+.hero-visual-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease}
+.hero-visual-img.active{opacity:1}
+.hero-visual-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,30,25,0) 40%,rgba(14,30,25,.92) 100%)}
+.hero-visual-hint{position:absolute;top:16px;right:16px;background:rgba(14,30,25,.7);color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.06em;padding:8px 12px;border-radius:999px;display:flex;align-items:center;gap:6px}
 .hero-card{
-  position:absolute;bottom:22px;left:22px;right:22px;background:#fff;border-radius:12px;
-  padding:18px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.35);
+  position:absolute;bottom:22px;left:22px;right:22px;background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.45);
 }
 .hero-card .dot{width:44px;height:44px;border-radius:50%;background:var(--teal-light);
   display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
 .hero-card b{display:block;font-size:14px}
 .hero-card span{font-size:12.5px;color:var(--ink-soft)}
+.hero-visual-dots{position:absolute;top:16px;left:16px;display:flex;gap:6px}
+.hero-visual-dots span{width:7px;height:7px;border-radius:50%;background:rgba(237,242,239,.35);transition:background .3s ease}
+.hero-visual-dots span.active{background:var(--gold)}
 
 /* ---------- Reveal ---------- */
 [data-reveal]{opacity:0;transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
@@ -109,7 +112,7 @@ header{
 [data-reveal].is-visible{opacity:1;transform:translate(0,0)}
 
 /* ---------- Stats ---------- */
-.stats{background:var(--ink);padding:44px 0}
+.stats{background:var(--teal-dark);padding:44px 0}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
 .stats-grid strong{display:block;font-family:'Fraunces',serif;font-size:36px;color:var(--gold);font-weight:500}
 .stats-grid span{display:block;font-size:13px;color:#C9CFC9;margin-top:6px}
@@ -123,7 +126,7 @@ section{padding:96px 0}
 /* ---------- Treatments ---------- */
 .treat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .treat-card{
-  background:#fff;border:1px solid var(--line);border-radius:12px;padding:32px 28px;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:32px 28px;
   transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s cubic-bezier(.16,1,.3,1),border-color .3s ease;
 }
 .treat-card:hover{transform:translateY(-6px);box-shadow:0 24px 40px -20px rgba(27,35,31,.18);border-color:var(--teal-light)}
@@ -136,13 +139,13 @@ section{padding:96px 0}
 .steps-wrap{background:var(--cream-2)}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
 .step{position:relative;padding-left:0}
-.step-num{font-family:'Fraunces',serif;font-size:52px;color:var(--teal-light);font-weight:500;line-height:1;margin-bottom:14px;-webkit-text-stroke:1.5px var(--teal)}
+.step-num{font-family:'Fraunces',serif;font-size:52px;color:transparent;font-weight:500;line-height:1;margin-bottom:14px;-webkit-text-stroke:1.5px var(--teal)}
 .step h3{font-size:18px;margin-bottom:8px}
 .step p{color:var(--ink-soft);font-size:14.5px}
 
 /* ---------- Testimonials ---------- */
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.test-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:30px;display:flex;flex-direction:column;gap:16px;justify-content:space-between}
+.test-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:30px;display:flex;flex-direction:column;gap:16px;justify-content:space-between}
 .test-quote{color:var(--ink-soft);font-size:15px;line-height:1.7}
 .test-stars{color:var(--gold);font-size:14px;letter-spacing:2px}
 .test-name{font-weight:700;font-size:14px;margin-top:4px}
@@ -173,8 +176,8 @@ section{padding:96px 0}
 .cta h2{color:#fff;font-size:clamp(26px,3.2vw,34px)}
 .cta p{color:#DCE9E2;margin-top:12px;font-size:15.5px;max-width:50ch}
 .cta-actions{display:flex;flex-direction:column;gap:12px}
-.cta .btn-primary{background:#fff;color:var(--teal-dark);box-shadow:none}
-.cta .btn-primary:hover{background:#EFEAE0}
+.cta .btn-primary{background:var(--gold);color:#12241D;box-shadow:none}
+.cta .btn-primary:hover{background:#D9AF77}
 .cta .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
 .cta .btn-ghost:hover{background:#fff;color:var(--teal-dark)}
 .cta-hours{font-size:13px;color:#CFE0D8;text-align:center}
@@ -208,7 +211,11 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 <header>
   <div class="wrap nav">
     <div class="logo">
-      <div class="logo-mark">B</div>
+      <svg class="logo-mark" width="38" height="38" viewBox="0 0 40 40" style="border-radius:10px;flex:none">
+        <rect width="40" height="40" rx="10" fill="#2F9C7C"/>
+        <path d="M20 10c-4 0-7 3-7 7 0 2.5 1 4 1.8 7 1 3.8 1.7 9.5 3 11.5.8 1.3 1.6 1.5 2.2 1.5s1.4-.2 2.2-1.5c1.3-2 2-7.7 3-11.5.8-3 1.8-4.5 1.8-7 0-4-3-7-7-7z" fill="#0E1E19"/>
+        <circle cx="29.5" cy="10.5" r="4" fill="#C79A56"/>
+      </svg>
       <div class="logo-text">Bianchi<small>Odontologia</small></div>
     </div>
     <nav class="nav-links">
@@ -248,17 +255,21 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
       </div>
     </div>
     <div data-reveal="right">
-      <div class="hero-visual">
-        <svg viewBox="0 0 200 200" fill="none">
-          <path d="M100 30c-22 0-34 14-34 32 0 12 4 20 8 34 5 17 8 46 14 56 4 7 8 8 12 8s8-1 12-8c6-10 9-39 14-56 4-14 8-22 8-34 0-18-12-32-34-32z" fill="#F7F4EC" opacity="0.95"/>
-          <path d="M100 30c-10 0-18 4-24 10 6 10 8 24 8 40 0 14 3 30 6 46" stroke="#1F4B3F" stroke-width="2" opacity="0.25" fill="none"/>
-        </svg>
+      <div class="hero-visual" id="heroVisual">
+        <img class="hero-visual-img active" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dental_treatment_room_featuring_equipment_and_a_chair_in_a_modern_clinic.jpg?width=900" alt="Consultório equipado">
+        <img class="hero-visual-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dental_tools_and_equipment_arranged_neatly_on_a_clinical_workstation_at_a_modern_dental_clinic.jpg?width=900" alt="Instrumentos esterilizados">
+        <img class="hero-visual-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/A_dental_professional_in_protective_gear_is_preparing_to_use_an_orange_dental_device.jpg?width=900" alt="Equipe especializada">
+        <div class="hero-visual-scrim"></div>
+        <div class="hero-visual-dots">
+          <span class="active"></span><span></span><span></span>
+        </div>
+        <div class="hero-visual-hint">👆 Toque para ver mais</div>
       </div>
       <div class="hero-card">
-        <div class="dot">🦷</div>
+        <div class="dot" id="heroCardIcon">🦷</div>
         <div>
-          <b>Planejamento digital 3D</b>
-          <span>Você vê o resultado antes de começar</span>
+          <b id="heroCardTitle">Consultório equipado</b>
+          <span id="heroCardDesc">Ambiente pensado para o seu conforto</span>
         </div>
       </div>
     </div>
@@ -392,7 +403,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
       </div>
       <div class="cta-actions">
         <a class="btn btn-primary" href="https://wa.me/5511988887777" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1F4B3F"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.017 2.001c-5.514 0-9.983 4.469-9.983 9.983 0 1.763.463 3.485 1.343 5.003l-1.428 5.213 5.339-1.4a9.94 9.94 0 0 0 4.729 1.204h.004c5.514 0 9.983-4.469 9.983-9.983 0-2.667-1.038-5.174-2.925-7.062A9.937 9.937 0 0 0 12.017 2zm0 18.163h-.003a8.16 8.16 0 0 1-4.156-1.138l-.298-.177-3.168.831.846-3.089-.194-.317a8.147 8.147 0 0 1-1.248-4.29c0-4.5 3.663-8.163 8.164-8.163 2.18 0 4.229.85 5.77 2.393a8.108 8.108 0 0 1 2.39 5.775c0 4.5-3.663 8.163-8.163 8.163z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#12241D"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.017 2.001c-5.514 0-9.983 4.469-9.983 9.983 0 1.763.463 3.485 1.343 5.003l-1.428 5.213 5.339-1.4a9.94 9.94 0 0 0 4.729 1.204h.004c5.514 0 9.983-4.469 9.983-9.983 0-2.667-1.038-5.174-2.925-7.062A9.937 9.937 0 0 0 12.017 2zm0 18.163h-.003a8.16 8.16 0 0 1-4.156-1.138l-.298-.177-3.168.831.846-3.089-.194-.317a8.147 8.147 0 0 1-1.248-4.29c0-4.5 3.663-8.163 8.164-8.163 2.18 0 4.229.85 5.77 2.393a8.108 8.108 0 0 1 2.39 5.775c0 4.5-3.663 8.163-8.163 8.163z"/></svg>
           Falar no WhatsApp
         </a>
         <a class="btn btn-ghost" href="tel:+551144442288">Ligar · (11) 4444-2288</a>
@@ -407,7 +418,11 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     <div class="foot-grid">
       <div class="foot-col">
         <div class="logo" style="margin-bottom:14px">
-          <div class="logo-mark">B</div>
+          <svg class="logo-mark" width="38" height="38" viewBox="0 0 40 40" style="border-radius:10px;flex:none">
+        <rect width="40" height="40" rx="10" fill="#2F9C7C"/>
+        <path d="M20 10c-4 0-7 3-7 7 0 2.5 1 4 1.8 7 1 3.8 1.7 9.5 3 11.5.8 1.3 1.6 1.5 2.2 1.5s1.4-.2 2.2-1.5c1.3-2 2-7.7 3-11.5.8-3 1.8-4.5 1.8-7 0-4-3-7-7-7z" fill="#0E1E19"/>
+        <circle cx="29.5" cy="10.5" r="4" fill="#C79A56"/>
+      </svg>
           <div class="logo-text">Bianchi<small>Odontologia</small></div>
         </div>
         <span>CRO/SP 00000 · Responsável técnico Dr. Marco Bianchi</span>
@@ -506,6 +521,34 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
         answer.style.maxHeight = answer.scrollHeight + 'px';
       }
     });
+  });
+})();
+
+(function(){
+  // Interactive hero visual: click cycles through 3 real clinic photos + captions
+  var slides = [
+    { icon: '🦷', title: 'Consultório equipado', desc: 'Ambiente pensado para o seu conforto' },
+    { icon: '🧪', title: 'Instrumentos esterilizados', desc: 'Protocolo rígido de biossegurança' },
+    { icon: '🩺', title: 'Equipe especializada', desc: 'Atendimento com equipamento de ponta' }
+  ];
+  var visual = document.getElementById('heroVisual');
+  if (!visual) return;
+  var imgs = Array.from(visual.querySelectorAll('.hero-visual-img'));
+  var dots = Array.from(visual.querySelectorAll('.hero-visual-dots span'));
+  var cardIcon = document.getElementById('heroCardIcon');
+  var cardTitle = document.getElementById('heroCardTitle');
+  var cardDesc = document.getElementById('heroCardDesc');
+  var current = 0;
+  function show(i){
+    current = i;
+    imgs.forEach(function(img, idx){ img.classList.toggle('active', idx === i); });
+    dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
+    cardIcon.textContent = slides[i].icon;
+    cardTitle.textContent = slides[i].title;
+    cardDesc.textContent = slides[i].desc;
+  }
+  visual.addEventListener('click', function(){
+    show((current + 1) % slides.length);
   });
 })();
 </script>
