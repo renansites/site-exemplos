@@ -322,7 +322,30 @@ document.addEventListener('DOMContentLoaded', async function() {
       const __minDelay = 2500;
       if (__elapsed < __minDelay) { await new Promise(function(r){ setTimeout(r, __minDelay - __elapsed); }); }
     }
-    document.documentElement.replaceWith(doc.documentElement);
+    {
+      const __loadingEl = document.getElementById('__bundler_thumbnail');
+      if (__loadingEl) {
+        __loadingEl.style.transition = 'opacity .45s cubic-bezier(.4,0,.2,1)';
+        __loadingEl.style.opacity = '0';
+        await new Promise(function(r){ setTimeout(r, 450); });
+      }
+    }
+    const __newRoot = doc.documentElement;
+    __newRoot.style.opacity = '0';
+    __newRoot.style.transform = 'scale(0.99)';
+    __newRoot.style.transition = 'opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1)';
+    document.documentElement.replaceWith(__newRoot);
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        __newRoot.style.opacity = '1';
+        __newRoot.style.transform = 'scale(1)';
+        setTimeout(function(){
+          __newRoot.style.transition = '';
+          __newRoot.style.transform = '';
+          __newRoot.style.opacity = '';
+        }, 720);
+      });
+    });
 
     // Resolve page-frame markers: mint this document's own blob for each
     // framed page — from local text when this is the root, otherwise by
