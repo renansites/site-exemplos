@@ -10,16 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#0E1E19;
-  --cream-2:#122019;
-  --surface:#152A22;
-  --ink:#EDF2EF;
-  --ink-soft:#9FB3AA;
+  --cream:#171410;
+  --cream-2:#1E1913;
+  --surface:#211C16;
+  --ink:#F2EDE6;
+  --ink-soft:#B0A99C;
   --teal:#2F9C7C;
   --teal-dark:#1B5C49;
-  --teal-light:#1E3B32;
+  --teal-light:rgba(199,154,86,.15);
   --gold:#C79A56;
-  --line:#24463A;
+  --gold-dark:#8F6B37;
+  --line:#3A3226;
   --radius:6px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -103,6 +104,15 @@ header{
 .hero-visual-dots{position:absolute;top:16px;left:16px;display:flex;gap:6px}
 .hero-visual-dots span{width:7px;height:7px;border-radius:50%;background:rgba(237,242,239,.35);transition:background .3s ease}
 .hero-visual-dots span.active{background:var(--gold)}
+.hero-visual-nav{
+  position:absolute;top:50%;transform:translateY(-50%);width:64px;height:64px;border-radius:50%;
+  background:rgba(14,20,16,.5);backdrop-filter:blur(4px);border:1.5px solid rgba(242,237,230,.4);
+  color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:34px;line-height:1;
+  cursor:pointer;transition:background .25s ease,transform .25s ease,border-color .25s ease;z-index:5;
+}
+.hero-visual-nav:hover{background:var(--gold);color:#211C16;border-color:var(--gold);transform:translateY(-50%) scale(1.1)}
+.hero-visual-nav.prev{left:18px}
+.hero-visual-nav.next{right:18px}
 
 /* ---------- Reveal ---------- */
 [data-reveal]{opacity:0;transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
@@ -139,7 +149,7 @@ section{padding:96px 0}
 .steps-wrap{background:var(--cream-2)}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
 .step{position:relative;padding-left:0}
-.step-num{font-family:'Fraunces',serif;font-size:52px;color:transparent;font-weight:500;line-height:1;margin-bottom:14px;-webkit-text-stroke:1.5px var(--teal)}
+.step-num{font-family:'Fraunces',serif;font-size:52px;color:transparent;font-weight:500;line-height:1;margin-bottom:14px;-webkit-text-stroke:1.5px var(--gold)}
 .step h3{font-size:18px;margin-bottom:8px}
 .step p{color:var(--ink-soft);font-size:14.5px}
 
@@ -239,7 +249,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
   <div class="wrap hero-grid">
     <div data-reveal="left">
       <span class="eyebrow">Implantodontia · Estética · Ortodontia invisível</span>
-      <h1>Um sorriso que parece <em>seu</em>, só que melhor.</h1>
+      <h1>O <em>seu</em> sorriso, só que melhor.</h1>
       <p class="lead">Planejamento digital, materiais de alta performance e acompanhamento próximo — do primeiro contato até o resultado final.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://wa.me/5511988887777" target="_blank" rel="noopener">
@@ -260,6 +270,8 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
         <img class="hero-visual-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dental_tools_and_equipment_arranged_neatly_on_a_clinical_workstation_at_a_modern_dental_clinic.jpg?width=900" alt="Instrumentos esterilizados">
         <img class="hero-visual-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/A_dental_professional_in_protective_gear_is_preparing_to_use_an_orange_dental_device.jpg?width=900" alt="Equipe especializada">
         <div class="hero-visual-scrim"></div>
+        <button type="button" class="hero-visual-nav prev" aria-label="Anterior">‹</button>
+        <button type="button" class="hero-visual-nav next" aria-label="Próxima">›</button>
         <div class="hero-visual-dots">
           <span class="active"></span><span></span><span></span>
         </div>
@@ -548,6 +560,16 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     cardDesc.textContent = slides[i].desc;
   }
   visual.addEventListener('click', function(){
+    show((current + 1) % slides.length);
+  });
+  var prevBtn = visual.querySelector('.hero-visual-nav.prev');
+  var nextBtn = visual.querySelector('.hero-visual-nav.next');
+  prevBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    show((current - 1 + slides.length) % slides.length);
+  });
+  nextBtn.addEventListener('click', function(e){
+    e.stopPropagation();
     show((current + 1) % slides.length);
   });
 })();
