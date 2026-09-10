@@ -30,7 +30,7 @@ img{max-width:100%;display:block}
 .btn-ghost{border:1px solid var(--ink-soft);color:var(--ink)}
 .btn-ghost:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px)}
 
-[data-reveal]{opacity:0;transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)}
+[data-reveal]{opacity:0;transition:opacity 1.5s cubic-bezier(.19,1,.22,1),transform 1.5s cubic-bezier(.19,1,.22,1)}
 [data-reveal="up"]{transform:translateY(30px)}
 [data-reveal="left"]{transform:translateX(-38px)}
 [data-reveal="right"]{transform:translateX(38px)}
@@ -128,7 +128,7 @@ footer{padding:58px 0 34px;border-top:1px solid var(--line)}
 
 <header>
   <div class="wrap nav">
-    <div class="logo"><div class="logo-mark">T</div><div class="logo-text">Estúdio Terreno</div></div>
+    <div class="logo"><div class="logo-mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 20h6"/><path d="M4 20v-6"/></svg></div><div class="logo-text">Estúdio Terreno</div></div>
     <nav class="nav-links">
       <a href="#servicos">Projetos</a>
       <a href="#como-funciona">Como funciona</a>
@@ -141,17 +141,8 @@ footer{padding:58px 0 34px;border-top:1px solid var(--line)}
 
 <section class="hero">
   <div class="hero-glow"></div><div class="hero-glow2"></div>
-  <div class="wrap hero-grid">
+  <div class="wrap hero-grid" style="grid-template-columns:.95fr 1.05fr">
     <div data-reveal="left">
-      <span class="eyebrow">Arquitetura residencial e comercial</span>
-      <h1>Projetos que respeitam o <em>terreno</em> e quem vai morar nele.</h1>
-      <p class="lead">Projeto arquitetônico completo, do estudo de viabilidade à aprovação na prefeitura.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a class="btn btn-primary" href="https://wa.me/5511955550000" target="_blank" rel="noopener">Agendar consultoria</a>
-        <a class="btn btn-ghost" href="#portfolio">Ver portfólio</a>
-      </div>
-    </div>
-    <div data-reveal="right">
       <div class="hero-visual">
         <svg viewBox="0 0 200 200" fill="none">
           <path d="M40 160V90L100 50L160 90V160" stroke="#A9B084" stroke-width="5" fill="none" stroke-linejoin="round"/>
@@ -159,6 +150,15 @@ footer{padding:58px 0 34px;border-top:1px solid var(--line)}
           <rect x="90" y="120" width="20" height="40" fill="#A9B084" opacity=".5"/>
         </svg>
         <div class="hero-card"><div class="dot">T</div><div><b>+90 projetos entregues</b><span>Residenciais e comerciais</span></div></div>
+      </div>
+    </div>
+    <div data-reveal="right">
+      <span class="eyebrow">Arquitetura residencial e comercial</span>
+      <h1>Projetos que respeitam o <em>terreno</em> e quem vai morar nele.</h1>
+      <p class="lead">Projeto arquitetônico completo, do estudo de viabilidade à aprovação na prefeitura.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://wa.me/5511955550000" target="_blank" rel="noopener">Agendar consultoria</a>
+        <a class="btn btn-ghost" href="#portfolio">Ver portfólio</a>
       </div>
     </div>
   </div>
@@ -253,7 +253,7 @@ footer{padding:58px 0 34px;border-top:1px solid var(--line)}
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark">T</div><div class="logo-text">Estúdio Terreno</div></div><span>Arquitetura residencial e comercial · São Paulo, SP</span></div>
+      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 20h6"/><path d="M4 20v-6"/></svg></div><div class="logo-text">Estúdio Terreno</div></div><span>Arquitetura residencial e comercial · São Paulo, SP</span></div>
       <div class="foot-col"><h4>Navegação</h4><a href="#servicos">Projetos</a><a href="#como-funciona">Como funciona</a><a href="#portfolio">Portfólio</a><a href="#duvidas">Dúvidas frequentes</a></div>
       <div class="foot-col"><h4>Contato</h4><a href="tel:+551133335555">(11) 3333-5555</a><a href="https://wa.me/5511955550000" target="_blank" rel="noopener">WhatsApp (11) 95555-0000</a><span>Rua dos Arquitetos, 88 · São Paulo, SP</span></div>
     </div>
@@ -282,7 +282,7 @@ footer{padding:58px 0 34px;border-top:1px solid var(--line)}
     counters.forEach(function(el){
       var end = parseInt(el.getAttribute('data-count'), 10);
       var suffix = el.getAttribute('data-suffix') || '';
-      var start = performance.now(), dur = 3000;
+      var start = performance.now(), dur = 3400;
       function step(now){
         var p = Math.min(1, (now - start) / dur);
         var eased = 1 - Math.pow(1 - p, 3);

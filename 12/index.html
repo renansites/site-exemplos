@@ -48,13 +48,13 @@ header{position:sticky;top:0;z-index:500;background:rgba(11,27,51,.92);backdrop-
 .hero{position:relative;padding:96px 0 78px;overflow:hidden}
 .hero-glow{position:absolute;top:-180px;right:-180px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(52,195,155,.16),transparent 70%);pointer-events:none}
 .hero-glow2{position:absolute;bottom:-190px;left:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(30,62,104,.4),transparent 70%);pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
-.hero h1{font-size:clamp(36px,4.8vw,52px);line-height:1.15;margin:20px 0 22px}
-.hero h1 em{font-style:italic;color:var(--emerald)}
-.hero p.lead{font-size:17.5px;color:var(--ink-soft);max-width:46ch;margin-bottom:34px}
 .hero-visual{position:relative;border-radius:6px;overflow:hidden;background:linear-gradient(155deg,var(--navy-light),var(--bg-2));border:1px solid var(--line);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
 .hero-visual svg{width:48%;opacity:.85}
-.hero-card{position:absolute;bottom:20px;left:20px;right:20px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
+.hero h1{font-size:clamp(38px,5.2vw,56px);line-height:1.08;margin:20px 0 22px}
+.hero h1 em{font-style:italic;color:var(--emerald)}
+.hero p.lead{font-size:17.5px;color:var(--ink-soft);max-width:46ch;margin-bottom:34px}
+.hero-card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
 .hero-card .dot{width:42px;height:42px;border-radius:4px;background:rgba(52,195,155,.14);display:flex;align-items:center;justify-content:center;color:var(--emerald);font-weight:700;font-size:16px;flex:none}
 .hero-card b{display:block;font-size:14px}
 .hero-card span{font-size:12px;color:var(--ink-soft)}
@@ -128,7 +128,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <header>
   <div class="wrap nav">
-    <div class="logo"><div class="logo-mark">C</div><div class="logo-text">Cerqueira Contabilidade</div></div>
+    <div class="logo"><div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="13" width="4.5" height="8" rx="1"/><rect x="9.75" y="7" width="4.5" height="14" rx="1"/><rect x="16.5" y="3" width="4.5" height="18" rx="1"/></svg></div><div class="logo-text">Cerqueira Contabilidade</div></div>
     <nav class="nav-links">
       <a href="#servicos">Serviços</a>
       <a href="#como-funciona">Como funciona</a>
@@ -255,7 +255,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark">C</div><div class="logo-text">Cerqueira Contabilidade</div></div><span>Contabilidade empresarial · São Paulo, SP</span></div>
+      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="13" width="4.5" height="8" rx="1"/><rect x="9.75" y="7" width="4.5" height="14" rx="1"/><rect x="16.5" y="3" width="4.5" height="18" rx="1"/></svg></div><div class="logo-text">Cerqueira Contabilidade</div></div><span>Contabilidade empresarial · São Paulo, SP</span></div>
       <div class="foot-col"><h4>Navegação</h4><a href="#servicos">Serviços</a><a href="#como-funciona">Como funciona</a><a href="#depoimentos">Depoimentos</a><a href="#duvidas">Dúvidas frequentes</a></div>
       <div class="foot-col"><h4>Contato</h4><a href="tel:+551133332222">(11) 3333-2222</a><a href="https://wa.me/5511944440000" target="_blank" rel="noopener">WhatsApp (11) 94444-0000</a><span>Rua Barão de Itapetininga, 200 · São Paulo, SP</span></div>
     </div>
@@ -284,7 +284,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     counters.forEach(function(el){
       var end = parseInt(el.getAttribute('data-count'), 10);
       var suffix = el.getAttribute('data-suffix') || '';
-      var start = performance.now(), dur = 3000;
+      var start = performance.now(), dur = 3100;
       function step(now){
         var p = Math.min(1, (now - start) / dur);
         var eased = 1 - Math.pow(1 - p, 3);

@@ -29,10 +29,10 @@ img{max-width:100%;display:block}
 .btn-ghost{border:1px solid var(--ink-soft);color:var(--ink)}
 .btn-ghost:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px)}
 
-[data-reveal]{opacity:0;transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)}
-[data-reveal="up"]{transform:translateY(30px)}
-[data-reveal="left"]{transform:translateX(-38px)}
-[data-reveal="right"]{transform:translateX(38px)}
+[data-reveal]{opacity:0;transition:opacity 1.3s cubic-bezier(.16,1,.3,1),transform 1.3s cubic-bezier(.16,1,.3,1)}
+[data-reveal="up"]{transform:translateY(46px)}
+[data-reveal="left"]{transform:translateX(-58px)}
+[data-reveal="right"]{transform:translateX(58px)}
 [data-reveal].is-visible{opacity:1;transform:translate(0,0)}
 
 header{position:sticky;top:0;z-index:500;background:rgba(13,13,13,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -50,8 +50,9 @@ header{position:sticky;top:0;z-index:500;background:rgba(13,13,13,.92);backdrop-
 .hero h1{font-size:clamp(36px,5vw,56px);line-height:1.05;margin:20px 0 22px}
 .hero h1 em{font-style:normal;color:var(--lime)}
 .hero p.lead{font-size:17.5px;color:var(--ink-soft);max-width:44ch;margin-bottom:34px;text-transform:none;font-family:'Inter',sans-serif}
-.hero-visual{position:relative;aspect-ratio:.9/1;border-radius:8px;background:linear-gradient(155deg,var(--surface),var(--bg-2));border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
-.hero-visual svg{width:55%;opacity:.9}
+.hero-visual{position:relative;aspect-ratio:.9/1;border-radius:8px;overflow:hidden;border:1px solid var(--line);display:flex;align-items:flex-end;justify-content:center;background:
+  linear-gradient(175deg,rgba(13,13,13,.25),rgba(13,13,13,.88) 80%),
+  url('https://upload.wikimedia.org/wikipedia/commons/6/66/Woman_doing_squat_workout_in_gym_with_barbell.jpg') center 25%/cover no-repeat}
 .hero-card{position:absolute;bottom:20px;left:20px;right:20px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
 .hero-card .dot{width:42px;height:42px;border-radius:50%;background:rgba(200,255,61,.14);display:flex;align-items:center;justify-content:center;font-size:19px;flex:none}
 .hero-card b{display:block;font-size:14px;text-transform:none;font-family:'Inter',sans-serif}
@@ -125,7 +126,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <header>
   <div class="wrap nav">
-    <div class="logo"><div class="logo-mark">F</div><div class="logo-text">Fórcia</div></div>
+    <div class="logo"><div class="logo-mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="2" y1="12" x2="22" y2="12"/><line x1="6" y1="7" x2="6" y2="17"/><line x1="18" y1="7" x2="18" y2="17"/><line x1="2" y1="9" x2="2" y2="15"/><line x1="22" y1="9" x2="22" y2="15"/></svg></div><div class="logo-text">Fórcia</div></div>
     <nav class="nav-links">
       <a href="#servicos">Treinos</a>
       <a href="#como-funciona">Como funciona</a>
@@ -150,11 +151,6 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     </div>
     <div data-reveal="right">
       <div class="hero-visual">
-        <svg viewBox="0 0 200 200" fill="none">
-          <rect x="40" y="90" width="120" height="20" rx="4" fill="#C8FF3D" opacity=".85"/>
-          <rect x="25" y="75" width="18" height="50" rx="4" fill="#C8FF3D" opacity=".6"/>
-          <rect x="157" y="75" width="18" height="50" rx="4" fill="#C8FF3D" opacity=".6"/>
-        </svg>
         <div class="hero-card">
           <div class="dot">💪</div>
           <div><b>Acompanhamento semanal</b><span>Ajuste de treino toda semana</span></div>
@@ -253,7 +249,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark">F</div><div class="logo-text">Fórcia</div></div><span>Treinamento personalizado · São Paulo, SP</span></div>
+      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="2" y1="12" x2="22" y2="12"/><line x1="6" y1="7" x2="6" y2="17"/><line x1="18" y1="7" x2="18" y2="17"/><line x1="2" y1="9" x2="2" y2="15"/><line x1="22" y1="9" x2="22" y2="15"/></svg></div><div class="logo-text">Fórcia</div></div><span>Treinamento personalizado · São Paulo, SP</span></div>
       <div class="foot-col"><h4>Navegação</h4><a href="#servicos">Treinos</a><a href="#como-funciona">Como funciona</a><a href="#resultados">Resultados</a><a href="#duvidas">Dúvidas frequentes</a></div>
       <div class="foot-col"><h4>Contato</h4><a href="tel:+551133331111">(11) 3333-1111</a><a href="https://wa.me/5511933332222" target="_blank" rel="noopener">WhatsApp (11) 93333-2222</a><span>Atendimento presencial e online</span></div>
     </div>
@@ -282,7 +278,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     counters.forEach(function(el){
       var end = parseInt(el.getAttribute('data-count'), 10);
       var suffix = el.getAttribute('data-suffix') || '';
-      var start = performance.now(), dur = 3000;
+      var start = performance.now(), dur = 3400;
       function step(now){
         var p = Math.min(1, (now - start) / dur);
         var eased = 1 - Math.pow(1 - p, 3);

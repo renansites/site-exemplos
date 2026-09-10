@@ -52,8 +52,9 @@ header{position:sticky;top:0;z-index:500;background:rgba(14,33,30,.92);backdrop-
 .hero h1{font-size:clamp(36px,4.8vw,52px);line-height:1.15;margin:20px 0 22px}
 .hero h1 em{font-style:italic;color:var(--terracota)}
 .hero p.lead{font-size:17.5px;color:var(--ink-soft);max-width:46ch;margin-bottom:34px}
-.hero-visual{position:relative;border-radius:6px;overflow:hidden;background:linear-gradient(155deg,var(--teal-light),var(--bg-2));border:1px solid var(--line);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
-.hero-visual svg{width:52%;opacity:.85}
+.hero-visual{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;display:flex;align-items:flex-end;justify-content:center;background:
+  linear-gradient(175deg,rgba(46,105,97,.3),rgba(14,33,30,.85) 78%),
+  url('https://upload.wikimedia.org/wikipedia/commons/0/0f/Palm_Springs_Alexander_01.jpg') center/cover no-repeat}
 .hero-card{position:absolute;bottom:20px;left:20px;right:20px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
 .hero-card .dot{width:42px;height:42px;border-radius:4px;background:rgba(201,124,82,.16);display:flex;align-items:center;justify-content:center;color:var(--terracota);font-weight:700;font-size:16px;flex:none}
 .hero-card b{display:block;font-size:14px}
@@ -128,7 +129,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <header>
   <div class="wrap nav">
-    <div class="logo"><div class="logo-mark">V</div><div class="logo-text">Vantana Imóveis</div></div>
+    <div class="logo"><div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 1.5 11H5v10h5v-6h4v6h5V11h3.5z"/></svg></div><div class="logo-text">Vantana Imóveis</div></div>
     <nav class="nav-links">
       <a href="#imoveis">Imóveis</a>
       <a href="#como-funciona">Como funciona</a>
@@ -153,12 +154,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     </div>
     <div data-reveal="right">
       <div class="hero-visual">
-        <svg viewBox="0 0 200 200" fill="none">
-          <path d="M40 100L100 50L160 100" stroke="#C97C52" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="55" y="100" width="90" height="60" fill="#2E6961" opacity=".7"/>
-          <rect x="90" y="120" width="20" height="40" fill="#0E211E"/>
-        </svg>
-        <div class="hero-card"><div class="dot">V</div><div><b>+180 imóveis ativos</b><span>Atualizados semanalmente</span></div></div>
+        <div class="hero-card"><div class="dot">🏠</div><div><b>+180 imóveis ativos</b><span>Atualizados semanalmente</span></div></div>
       </div>
     </div>
   </div>
@@ -253,7 +249,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark">V</div><div class="logo-text">Vantana Imóveis</div></div><span>Compra, venda e locação · São Paulo, SP</span></div>
+      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 1.5 11H5v10h5v-6h4v6h5V11h3.5z"/></svg></div><div class="logo-text">Vantana Imóveis</div></div><span>Compra, venda e locação · São Paulo, SP</span></div>
       <div class="foot-col"><h4>Navegação</h4><a href="#imoveis">Imóveis</a><a href="#como-funciona">Como funciona</a><a href="#depoimentos">Depoimentos</a><a href="#duvidas">Dúvidas frequentes</a></div>
       <div class="foot-col"><h4>Contato</h4><a href="tel:+551133331111">(11) 3333-1111</a><a href="https://wa.me/5511933330000" target="_blank" rel="noopener">WhatsApp (11) 93333-0000</a><span>Av. das Palmeiras, 900 · São Paulo, SP</span></div>
     </div>
@@ -282,7 +278,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     counters.forEach(function(el){
       var end = parseInt(el.getAttribute('data-count'), 10);
       var suffix = el.getAttribute('data-suffix') || '';
-      var start = performance.now(), dur = 3000;
+      var start = performance.now(), dur = 3300;
       function step(now){
         var p = Math.min(1, (now - start) / dur);
         var eased = 1 - Math.pow(1 - p, 3);

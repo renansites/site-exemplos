@@ -52,8 +52,8 @@ header{position:sticky;top:0;z-index:500;background:rgba(43,34,51,.9);backdrop-f
 .hero h1{font-size:clamp(38px,5.2vw,58px);line-height:1.08;margin:20px 0 22px}
 .hero h1 em{font-style:italic;color:var(--rosegold)}
 .hero p.lead{font-size:17.5px;color:var(--ink-soft);max-width:44ch;margin-bottom:34px}
-.hero-visual{position:relative;aspect-ratio:.9/1;border-radius:24px;background:linear-gradient(155deg,var(--lilac-dark),var(--bg-2));border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
-.hero-visual svg{width:46%;opacity:.9}
+.hero-visual{position:relative;aspect-ratio:.9/1;border-radius:24px;overflow:hidden;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,var(--lilac-dark),var(--bg-2))}
+.hero-visual svg{width:44%;opacity:.9}
 .hero-card{position:absolute;bottom:20px;left:20px;right:20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
 .hero-card .dot{width:42px;height:42px;border-radius:50%;background:rgba(227,183,160,.16);display:flex;align-items:center;justify-content:center;font-size:19px;flex:none}
 .hero-card b{display:block;font-size:14px}
@@ -121,7 +121,6 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
   .hero-grid,.serv-grid,.steps,.test-grid,.stats-grid,.foot-grid{grid-template-columns:1fr}
   .nav-links{display:none}
   .cta{grid-template-columns:1fr;padding:40px 26px}
-  .hero-visual{display:none}
 }
 </style>
 </head>
@@ -129,7 +128,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <header>
   <div class="wrap nav">
-    <div class="logo"><div class="logo-mark">L</div><div class="logo-text">Nail Studio Lis</div></div>
+    <div class="logo"><div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-.3 0-.6.15-.78.4C9.6 5.3 5 12 5 15.5 5 19.6 8.13 23 12 23s7-3.4 7-7.5c0-3.5-4.6-10.2-6.22-13.1A.9.9 0 0 0 12 2z"/></svg></div><div class="logo-text">Nail Studio Lis</div></div>
     <nav class="nav-links">
       <a href="#servicos">Serviços</a>
       <a href="#como-funciona">Como funciona</a>
@@ -154,10 +153,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     </div>
     <div data-reveal="right">
       <div class="hero-visual">
-        <svg viewBox="0 0 200 200" fill="none">
-          <path d="M85 40c-8 0-14 8-14 24v50c0 12 6 20 14 20s14-8 14-20V64c0-16-6-24-14-24z" fill="#E3B7A0" opacity=".8"/>
-          <path d="M115 50c-8 0-14 8-14 22v46c0 11 6 18 14 18s14-7 14-18V72c0-14-6-22-14-22z" fill="#B29AD1" opacity=".85"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="#E3B7A0" opacity=".85"><path d="M12 2c-.3 0-.6.15-.78.4C9.6 5.3 5 12 5 15.5 5 19.6 8.13 23 12 23s7-3.4 7-7.5c0-3.5-4.6-10.2-6.22-13.1A.9.9 0 0 0 12 2z"/></svg>
         <div class="hero-card"><div class="dot">💅</div><div><b>Horário marcado</b><span>Sem fila de espera</span></div></div>
       </div>
     </div>
@@ -253,7 +249,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark">L</div><div class="logo-text">Nail Studio Lis</div></div><span>Manicure e nail designer · São Paulo, SP</span></div>
+      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-.3 0-.6.15-.78.4C9.6 5.3 5 12 5 15.5 5 19.6 8.13 23 12 23s7-3.4 7-7.5c0-3.5-4.6-10.2-6.22-13.1A.9.9 0 0 0 12 2z"/></svg></div><div class="logo-text">Nail Studio Lis</div></div><span>Manicure e nail designer · São Paulo, SP</span></div>
       <div class="foot-col"><h4>Navegação</h4><a href="#servicos">Serviços</a><a href="#como-funciona">Como funciona</a><a href="#resultados">Resultados</a><a href="#duvidas">Dúvidas frequentes</a></div>
       <div class="foot-col"><h4>Contato</h4><a href="tel:+551133339999">(11) 3333-9999</a><a href="https://wa.me/5511911110000" target="_blank" rel="noopener">WhatsApp (11) 91111-0000</a><span>Rua das Orquídeas, 55 · São Paulo, SP</span></div>
     </div>
