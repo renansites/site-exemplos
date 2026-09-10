@@ -167,7 +167,8 @@ section{padding:96px 0}
 
 /* ---------- Testimonials ---------- */
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.test-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:30px;display:flex;flex-direction:column;gap:16px;justify-content:space-between}
+.test-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:30px;display:flex;flex-direction:column;gap:16px;justify-content:space-between;transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s ease}
+.test-card:hover{transform:translateY(-6px);border-color:var(--gold)}
 .test-quote{color:var(--ink-soft);font-size:15px;line-height:1.7}
 .test-stars{color:var(--gold);font-size:14px;letter-spacing:2px}
 .test-name{font-weight:700;font-size:14px;margin-top:4px}

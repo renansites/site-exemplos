@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Braza Burger</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23D9482E%22/><text x=%2250%22 y=%2270%22 font-family=%22Georgia,serif%22 font-size=%2258%22 font-weight=%22700%22 fill=%22%23231512%22 text-anchor=%22middle%22>B</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#231512; --bg-2:#2B1B17; --surface:#331F1A;
+  --ink:#F6EDE8; --ink-soft:#CBB4AB;
+  --red:#D9482E; --red-dark:#A6341F;
+  --mustard:#E8B23D;
+  --line:#4A332C; --radius:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,sans-serif;line-height:1.55;overflow-x:hidden}
+h1,h2,h3{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;letter-spacing:.02em;color:var(--ink)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 26px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--mustard)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s ease}
+.btn-primary{background:var(--red);color:#fff;box-shadow:0 14px 28px -12px rgba(217,72,46,.5)}
+.btn-primary:hover{background:#EA5B3F;transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--ink-soft);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px)}
+
+[data-reveal]{opacity:0;transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)}
+[data-reveal="up"]{transform:translateY(30px)}
+[data-reveal="left"]{transform:translateX(-38px)}
+[data-reveal="right"]{transform:translateX(38px)}
+[data-reveal].is-visible{opacity:1;transform:translate(0,0)}
+
+header{position:sticky;top:0;z-index:500;background:rgba(35,21,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:38px;height:38px;border-radius:8px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;flex:none}
+.logo-text{font-family:'Bebas Neue',sans-serif;font-size:23px;letter-spacing:.03em}
+.nav-links{display:flex;gap:34px;font-size:13px;font-weight:600}
+.nav-links a{color:var(--ink-soft);transition:color .2s ease}
+.nav-links a:hover{color:var(--mustard)}
+
+.hero{position:relative;padding:110px 0 90px;overflow:hidden;background:
+  linear-gradient(180deg,rgba(35,21,18,.55),rgba(35,21,18,.94) 85%),
+  url('https://upload.wikimedia.org/wikipedia/commons/4/46/Le_Gourmet_Burger_2.jpg') center 30%/cover no-repeat;
+}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:end;position:relative}
+.hero h1{font-size:clamp(46px,7vw,80px);line-height:.98;margin:18px 0 22px}
+.hero h1 span{color:var(--red)}
+.hero p.lead{font-size:17.5px;color:var(--ink-soft);max-width:44ch;margin-bottom:34px}
+.hero-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 24px 48px -18px rgba(0,0,0,.55)}
+.hero-card-row{display:flex;align-items:center;gap:14px}
+.hero-card .dot{width:44px;height:44px;border-radius:8px;background:rgba(232,178,61,.16);display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+.hero-card b{display:block;font-size:14px}
+.hero-card span{font-size:12px;color:var(--ink-soft)}
+
+.stats{padding:44px 0;background:radial-gradient(ellipse 60% 100% at 15% 50%,rgba(232,178,61,.18),transparent 65%),radial-gradient(ellipse 60% 100% at 85% 50%,rgba(217,72,46,.2),transparent 65%),var(--bg-2)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stats-grid strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--mustard)}
+.stats-grid span{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:6px}
+
+section{padding:100px 0}
+.section-head{max-width:620px;margin:0 auto 52px;text-align:center}
+.section-head p{color:var(--ink-soft);margin-top:14px;font-size:16px}
+.section-head h2{font-size:clamp(32px,4.4vw,48px);margin-top:10px}
+
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.serv-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px 26px;transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s ease}
+.serv-card:hover{transform:translateY(-6px);border-color:var(--red-dark)}
+.serv-icon{width:52px;height:52px;border-radius:8px;background:rgba(232,178,61,.16);display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:18px}
+.serv-card h3{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.02em;margin-bottom:10px}
+.serv-card p{color:var(--ink-soft);font-size:14.5px}
+
+.steps-wrap{background:var(--bg-2)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.step-num{width:60px;height:60px;border-radius:8px;border:1px solid var(--mustard);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--mustard);margin-bottom:18px}
+.step h3{font-family:'Bebas Neue',sans-serif;font-size:20px;margin-bottom:8px}
+.step p{color:var(--ink-soft);font-size:14.5px}
+
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.test-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;gap:16px;justify-content:space-between;transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s ease}
+.test-card:hover{transform:translateY(-6px);border-color:var(--mustard)}
+.test-stars{color:var(--mustard);font-size:14px;letter-spacing:2px}
+.test-quote{color:var(--ink-soft);font-size:15px;line-height:1.7}
+.test-foot{border-top:1px solid var(--line);padding-top:14px}
+.test-name{font-weight:700;font-size:14px}
+.test-role{font-size:12.5px;color:var(--ink-soft)}
+
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;background:none;border:0;padding:24px 4px;display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;text-align:left;font-size:16.5px;font-weight:600;color:var(--ink);font-family:'Inter',sans-serif}
+.faq-icon{width:28px;height:28px;flex:none;border-radius:6px;background:rgba(232,178,61,.16);display:flex;align-items:center;justify-content:center;color:var(--mustard);transition:transform .35s cubic-bezier(.16,1,.3,1),background .3s ease,color .3s ease;font-size:15px}
+.faq-item.open .faq-icon{background:var(--mustard);color:var(--bg);transform:rotate(135deg)}
+.faq-a{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s cubic-bezier(.16,1,.3,1),opacity .3s ease}
+.faq-a p{padding:0 4px 24px;color:var(--ink-soft);font-size:15px;max-width:64ch;line-height:1.7}
+.faq-item.open .faq-a{opacity:1}
+
+.cta{background:linear-gradient(135deg,var(--red-dark) 0%,var(--red) 65%,#7A5416 130%);border-radius:16px;padding:60px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.cta h2{font-size:clamp(30px,4vw,44px);color:#fff}
+.cta p{color:#FBE6DE;margin-top:12px;font-size:15.5px;max-width:48ch}
+.cta-actions{display:flex;flex-direction:column;gap:12px}
+.cta .btn-primary{background:var(--mustard);color:var(--bg)}
+.cta .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+.cta-hours{font-size:13px;color:#FBE6DE;text-align:center}
+
+footer{padding:56px 0 32px;border-top:1px solid var(--line)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot-col h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mustard);margin-bottom:14px}
+.foot-col a,.foot-col span{display:block;font-size:14px;color:var(--ink-soft);margin-bottom:10px}
+.foot-bottom{margin-top:36px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--ink-soft)}
+.foot-credit{font-size:11px;color:var(--ink-soft);opacity:.6}
+
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:600;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 28px -8px rgba(37,211,102,.55);transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.wa-float:hover{transform:scale(1.08)}
+
+@media (max-width:920px){
+  .hero-grid,.serv-grid,.steps,.test-grid,.stats-grid,.foot-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .cta{grid-template-columns:1fr;padding:40px 26px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><div class="logo-mark">B</div><div class="logo-text">Braza Burger</div></div>
+    <nav class="nav-links">
+      <a href="#cardapio">Cardápio</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn btn-primary" href="https://wa.me/5511922220000" target="_blank" rel="noopener">Pedir agora</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div data-reveal="left">
+      <span class="eyebrow">Hambúrguer artesanal · Delivery e retirada</span>
+      <h1>Burger de verdade,<br><span>feito na brasa</span>.</h1>
+      <p class="lead">Pão brioche, carne 160g no ponto e ingredientes selecionados. Peça pelo WhatsApp e receba quentinho.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://wa.me/5511922220000" target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        <a class="btn btn-ghost" href="#cardapio">Ver cardápio</a>
+      </div>
+    </div>
+    <div data-reveal="right">
+      <div class="hero-card">
+        <div class="hero-card-row"><div class="dot">🔥</div><div><b>Pronto em 25-35 min</b><span>Delivery ou retirada</span></div></div>
+        <div class="hero-card-row"><div class="dot">📍</div><div><b>Raio de 5km</b><span>Entrega rápida na região</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div><strong data-count="42000" data-suffix="+">0</strong><span>Burgers entregues</span></div>
+    <div><strong data-count="4">0</strong><span>Anos de estrada</span></div>
+    <div><strong data-count="96" data-suffix="%">0</strong><span>Pedidos recorrentes</span></div>
+    <div><strong data-count="12">0</strong><span>Itens no cardápio</span></div>
+  </div>
+</div>
+
+<section id="cardapio">
+  <div class="wrap">
+    <div class="section-head" data-reveal="up">
+      <span class="eyebrow">Cardápio</span>
+      <h2>Feito na hora, sem pressa</h2>
+      <p>Carne moída na casa, pão brioche fresco e molhos autorais.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv-card" data-reveal="up"><div class="serv-icon">🍔</div><h3>Braza Clássico</h3><p>160g, queijo cheddar, bacon crocante e molho da casa.</p></div>
+      <div class="serv-card" data-reveal="up"><div class="serv-icon">🌶️</div><h3>Braza Picante</h3><p>Queijo pepper jack, jalapeño e maionese de chipotle.</p></div>
+      <div class="serv-card" data-reveal="up"><div class="serv-icon">🧀</div><h3>Duplo Cheddar</h3><p>Duas carnes, dobro de queijo, para quem tem fome de verdade.</p></div>
+      <div class="serv-card" data-reveal="up"><div class="serv-icon">🥗</div><h3>Veggie</h3><p>Hambúrguer de grão-de-bico com legumes grelhados.</p></div>
+      <div class="serv-card" data-reveal="up"><div class="serv-icon">🍟</div><h3>Acompanhamentos</h3><p>Batata rústica, onion rings e nuggets artesanais.</p></div>
+      <div class="serv-card" data-reveal="up"><div class="serv-icon">🥤</div><h3>Combos</h3><p>Burger + acompanhamento + bebida com desconto.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="steps-wrap">
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="section-head" data-reveal="up">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Do pedido à sua mesa</h2>
+      </div>
+      <div class="steps">
+        <div class="step" data-reveal="left"><div class="step-num">01</div><h3>Peça pelo WhatsApp</h3><p>Escolha o combo e envie o endereço, sem complicação.</p></div>
+        <div class="step" data-reveal="up"><div class="step-num">02</div><h3>Preparo na brasa</h3><p>Cada burger é montado e grelhado na hora do pedido.</p></div>
+        <div class="step" data-reveal="right"><div class="step-num">03</div><h3>Entrega quentinho</h3><p>Delivery próprio, em média 25-35 minutos.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section id="avaliacoes">
+  <div class="wrap">
+    <div class="section-head" data-reveal="up">
+      <span class="eyebrow">Avaliações</span>
+      <h2>Quem já provou, volta</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card" data-reveal="left"><div><div class="test-stars">★★★★★</div><p class="test-quote">O ponto da carne é perfeito e o pão chega fresquinho mesmo no delivery. Já é fixo aqui em casa.</p></div><div class="test-foot"><div class="test-name">Rodrigo A.</div><div class="test-role">Braza Clássico</div></div></div>
+      <div class="test-card" data-reveal="up"><div><div class="test-stars">★★★★★</div><p class="test-quote">O picante é diferenciado, o jalapeño dá o toque certo sem exagerar. Peço toda semana.</p></div><div class="test-foot"><div class="test-name">Camila F.</div><div class="test-role">Braza Picante</div></div></div>
+      <div class="test-card" data-reveal="right"><div><div class="test-stars">★★★★★</div><p class="test-quote">Finalmente uma opção vegetariana que não parece opção de segunda categoria. Recomendo muito.</p></div><div class="test-foot"><div class="test-name">Diego S.</div><div class="test-role">Veggie</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="duvidas">
+  <div class="wrap">
+    <div class="section-head" data-reveal="up">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2>Antes de pedir, talvez isso já responda</h2>
+    </div>
+    <div class="faq-list" data-reveal="up">
+      <div class="faq-item"><button class="faq-q"><span>🚚 Qual o raio de entrega?</span><span class="faq-icon">+</span></button><div class="faq-a"><p>Entregamos num raio de 5km. Fora dessa área, consulte disponibilidade pelo WhatsApp.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>⏱️ Quanto tempo demora?</span><span class="faq-icon">+</span></button><div class="faq-a"><p>Em média 25 a 35 minutos, dependendo da distância e do movimento.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>💳 Quais formas de pagamento?</span><span class="faq-icon">+</span></button><div class="faq-a"><p>Pix, cartão na entrega e dinheiro. O valor total é confirmado antes de sair pra entrega.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>🥗 Tem opção vegetariana?</span><span class="faq-icon">+</span></button><div class="faq-a"><p>Sim, o Veggie é feito com hambúrguer de grão-de-bico e legumes grelhados.</p></div></div>
+      <div class="faq-item"><button class="faq-q"><span>📦 Faz retirada no local?</span><span class="faq-icon">+</span></button><div class="faq-a"><p>Sim, pode retirar direto no balcão sem taxa de entrega.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta" data-reveal="up">
+      <div><h2>Bateu a fome?</h2><p>Chama no WhatsApp e peça seu burger agora mesmo.</p></div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="https://wa.me/5511922220000" target="_blank" rel="noopener">Pedir no WhatsApp</a>
+        <a class="btn btn-ghost" href="tel:+551133338888">Ligar · (11) 3333-8888</a>
+        <span class="cta-hours">Ter a dom, 18h às 23h30</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark">B</div><div class="logo-text">Braza Burger</div></div><span>Hambúrguer artesanal · São Paulo, SP</span></div>
+      <div class="foot-col"><h4>Navegação</h4><a href="#cardapio">Cardápio</a><a href="#como-funciona">Como funciona</a><a href="#avaliacoes">Avaliações</a><a href="#duvidas">Dúvidas frequentes</a></div>
+      <div class="foot-col"><h4>Contato</h4><a href="tel:+551133338888">(11) 3333-8888</a><a href="https://wa.me/5511922220000" target="_blank" rel="noopener">WhatsApp (11) 92222-0000</a><span>Rua do Sabor, 120 · São Paulo, SP</span></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Braza Burger</span><span>Todos os direitos reservados</span></div>
+    <div class="foot-credit">Foto: Bohemian Baltimore, Wikimedia Commons (CC BY-SA 4.0)</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5511922220000" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.017 2.001c-5.514 0-9.983 4.469-9.983 9.983 0 1.763.463 3.485 1.343 5.003l-1.428 5.213 5.339-1.4a9.94 9.94 0 0 0 4.729 1.204h.004c5.514 0 9.983-4.469 9.983-9.983 0-2.667-1.038-5.174-2.925-7.062A9.937 9.937 0 0 0 12.017 2zm0 18.163h-.003a8.16 8.16 0 0 1-4.156-1.138l-.298-.177-3.168.831.846-3.089-.194-.317a8.147 8.147 0 0 1-1.248-4.29c0-4.5 3.663-8.163 8.164-8.163 2.18 0 4.229.85 5.77 2.393a8.108 8.108 0 0 1 2.39 5.775c0 4.5-3.663 8.163-8.163 8.163z"/></svg>
+</a>
+
+<script>
+(function(){
+  var els = Array.from(document.querySelectorAll('[data-reveal]'));
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){ if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); } });
+  }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(function(el){ io.observe(el); });
+  setTimeout(function(){ els.forEach(function(el){ var r = el.getBoundingClientRect(); if (r.top < window.innerHeight + 40) el.classList.add('is-visible'); }); }, 700);
+})();
+(function(){
+  var counters = Array.from(document.querySelectorAll('[data-count]'));
+  var animated = false;
+  function animate(){
+    if (animated || !counters.length) return; animated = true;
+    counters.forEach(function(el){
+      var end = parseInt(el.getAttribute('data-count'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var start = performance.now(), dur = 3000;
+      function step(now){
+        var p = Math.min(1, (now - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(end * eased).toLocaleString('pt-BR') + suffix;
+        if (p < 1) requestAnimationFrame(step); else el.textContent = end.toLocaleString('pt-BR') + suffix;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var statsBlock = document.querySelector('.stats');
+  var io2 = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (e.isIntersecting) { animate(); io2.disconnect(); } }); }, { threshold: 0.4 });
+  if (statsBlock) io2.observe(statsBlock);
+  setTimeout(animate, 3200);
+})();
+(function(){
+  var items = Array.from(document.querySelectorAll('.faq-item'));
+  items.forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    var answer = item.querySelector('.faq-a');
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(i){ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = '0px'; });
+      if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
