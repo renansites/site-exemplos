@@ -57,7 +57,7 @@ header{position:sticky;top:0;z-index:500;background:rgba(248,243,238,.9);backdro
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
 .hero-visual{position:relative;aspect-ratio:.85/1}
 .hero-circle{position:absolute;inset:0;border-radius:50%;background:linear-gradient(155deg,var(--rose-pale),var(--rose));overflow:hidden}
-.hero-circle img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;opacity:.14}
+.hero-circle img{width:100%;height:100%;object-fit:cover;mix-blend-mode:luminosity;opacity:.55}
 .hero-ring{position:absolute;inset:-22px;border:1px solid var(--line);border-radius:50%}
 .hero-badge{position:absolute;bottom:8%;left:-8%;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:0 20px 40px -18px rgba(43,39,36,.28);display:flex;align-items:center;gap:12px}
 .hero-badge .n{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--rose-deep)}
@@ -80,8 +80,8 @@ section{padding:104px 0}
 .treat-card h3{font-size:20px;margin-bottom:10px}
 .treat-card p{color:var(--charcoal-soft);font-size:14.5px}
 
-.philosophy{background:var(--charcoal);color:var(--ivory);border-radius:28px;margin:0 26px;padding:88px 40px;text-align:center}
-.philosophy .wrap{max-width:760px}
+.philosophy{position:relative;background:linear-gradient(155deg,rgba(43,39,36,.88),rgba(43,39,36,.94)),url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Spa_massage_parlor_in_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg') center/cover;color:var(--ivory);border-radius:28px;margin:0 26px;padding:88px 40px;text-align:center;overflow:hidden}
+.philosophy .wrap{max-width:760px;position:relative}
 .philosophy .eyebrow{color:var(--rose)}
 .philosophy p.quote{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,30px);line-height:1.5;font-style:italic;margin:20px 0}
 .philosophy .attr{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#C9BDB2}
@@ -139,7 +139,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 <header>
   <div class="wrap nav">
     <div class="logo">
-      <div class="logo-mark">L</div>
+      <div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="4.5" r="3.2"/><circle cx="12" cy="19.5" r="3.2"/><circle cx="4.5" cy="12" r="3.2"/><circle cx="19.5" cy="12" r="3.2"/></svg></div>
       <div class="logo-text">Lumière</div>
     </div>
     <nav class="nav-links">
@@ -165,7 +165,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     </div>
     <div class="hero-visual" data-reveal="right">
       <div class="hero-ring"></div>
-      <div class="hero-circle"></div>
+      <div class="hero-circle"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Routine_Facial_Treatment_And_Care.jpg" alt="Tratamento facial" loading="lazy"></div>
       <div class="hero-badge">
         <div class="n">4,9</div>
         <span>avaliação média das pacientes</span>
@@ -321,7 +321,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     <div class="foot-grid">
       <div class="foot-col">
         <div class="logo" style="margin-bottom:14px">
-          <div class="logo-mark">L</div>
+          <div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="4.5" r="3.2"/><circle cx="12" cy="19.5" r="3.2"/><circle cx="4.5" cy="12" r="3.2"/><circle cx="19.5" cy="12" r="3.2"/></svg></div>
           <div class="logo-text">Lumière</div>
         </div>
         <span>Responsável técnica Dra. Luiza Ferraz · CRM/SP 000000</span>
