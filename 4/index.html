@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lumière Clínica Estética</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23C99A8E%22/><text x=%2250%22 y=%2270%22 font-family=%22Georgia,serif%22 font-size=%2258%22 font-weight=%22700%22 fill=%22%232B2724%22 text-anchor=%22middle%22>L</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><circle cx=%2212%22 cy=%2212%22 r=%2212%22 fill=%22%23C08670%22/><g fill=%22%23fff%22 transform=%22translate(12,12)%22><circle cx=%220%22 cy=%220%22 r=%223.2%22/><circle cx=%220%22 cy=%22-7.5%22 r=%223.2%22/><circle cx=%220%22 cy=%227.5%22 r=%223.2%22/><circle cx=%22-7.5%22 cy=%220%22 r=%223.2%22/><circle cx=%227.5%22 cy=%220%22 r=%223.2%22/></g></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -92,6 +92,7 @@ section{padding:104px 0}
 .step h3{font-size:18px;margin-bottom:8px}
 .step p{color:var(--charcoal-soft);font-size:14.5px;max-width:30ch;margin:0 auto}
 
+#resultados{position:relative;background-color:var(--ivory);background-image:linear-gradient(180deg,rgba(248,243,238,.93),rgba(240,232,224,.88)),url('https://upload.wikimedia.org/wikipedia/commons/9/98/Routine_Facial_Treatment_And_Care.jpg');background-size:cover;background-position:center 30%}
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .test-card{background:#fff;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px;justify-content:space-between;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s ease}
 .test-card:hover{transform:translateY(-6px);box-shadow:0 26px 44px -22px rgba(43,39,36,.2)}
@@ -110,7 +111,7 @@ section{padding:104px 0}
 .faq-a p{padding:0 4px 24px;color:var(--charcoal-soft);font-size:15px;max-width:64ch;line-height:1.7}
 .faq-item.open .faq-a{opacity:1}
 
-.cta{background:linear-gradient(155deg,var(--rose-pale),var(--ivory-2));border-radius:28px;padding:64px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.cta{background-image:linear-gradient(155deg,rgba(239,220,210,.92),rgba(240,232,224,.92)),url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Spa_massage_parlor_in_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg');background-size:cover;background-position:center;border-radius:28px;padding:64px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
 .cta h2{font-size:clamp(26px,3.2vw,34px)}
 .cta p{color:var(--charcoal-soft);margin-top:12px;font-size:15.5px;max-width:48ch}
 .cta-actions{display:flex;flex-direction:column;gap:12px}
@@ -125,6 +126,12 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 .wa-float{position:fixed;bottom:26px;right:26px;z-index:600;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 28px -8px rgba(37,211,102,.55);transition:transform .25s cubic-bezier(.16,1,.3,1)}
 .wa-float:hover{transform:scale(1.08)}
 
+#preloader{position:fixed;inset:0;z-index:9999;background:var(--ivory);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease;opacity:1}
+#preloader.hidden{opacity:0;pointer-events:none}
+#preloader .pl-mark{width:64px;height:64px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;animation:pl-pulse 1.4s ease-in-out infinite}
+#preloader .pl-mark svg{width:30px;height:30px}
+@keyframes pl-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.88);opacity:.65}}
+
 @media (max-width:920px){
   .hero-grid,.treat-grid,.steps,.test-grid,.stats-grid,.foot-grid{grid-template-columns:1fr}
   .nav-links{display:none}
@@ -135,6 +142,12 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
+
+<div id="preloader" aria-hidden="true">
+  <div class="pl-mark">
+    <svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="4.5" r="3.2"/><circle cx="12" cy="19.5" r="3.2"/><circle cx="4.5" cy="12" r="3.2"/><circle cx="19.5" cy="12" r="3.2"/></svg>
+  </div>
+</div>
 
 <header>
   <div class="wrap nav">
@@ -351,6 +364,48 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 </a>
 
 <script>
+(function(){
+  // Preloader: minimum 4s, and never hides before every image (bg + <img>) has loaded
+  var pre = document.getElementById('preloader');
+  var start = Date.now();
+  var MIN = 4000;
+  function collectCssBgUrls(){
+    var urls = [];
+    ['#resultados','.cta','.philosophy'].forEach(function(sel){
+      var el = document.querySelector(sel);
+      if (!el) return;
+      var bg = getComputedStyle(el).backgroundImage || '';
+      (bg.match(/url\(["']?([^"')]+)["']?\)/g) || []).forEach(function(m){
+        var mm = m.match(/url\(["']?([^"')]+)["']?\)/);
+        if (mm) urls.push(mm[1]);
+      });
+    });
+    return urls;
+  }
+  function preloadAll(){
+    var imgs = Array.from(document.images).map(function(img){
+      if (img.complete) return Promise.resolve();
+      return new Promise(function(res){ img.addEventListener('load', res); img.addEventListener('error', res); });
+    });
+    var bgs = collectCssBgUrls().map(function(src){
+      return new Promise(function(res){
+        var im = new Image();
+        im.onload = res; im.onerror = res;
+        im.src = src;
+      });
+    });
+    return Promise.all(imgs.concat(bgs));
+  }
+  function finish(){
+    var wait = Math.max(0, MIN - (Date.now() - start));
+    setTimeout(function(){
+      pre.classList.add('hidden');
+      setTimeout(function(){ pre.remove(); }, 650);
+    }, wait);
+  }
+  preloadAll().then(finish);
+})();
+
 (function(){
   var els = Array.from(document.querySelectorAll('[data-reveal]'));
   var io = new IntersectionObserver(function(entries){

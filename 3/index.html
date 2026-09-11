@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bianchi Odontologia</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%232F9CB0%22/><text x=%2250%22 y=%2270%22 font-family=%22Georgia,serif%22 font-size=%2258%22 font-weight=%22700%22 fill=%22%23EAF2F5%22 text-anchor=%22middle%22>B</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><rect width=%2240%22 height=%2240%22 rx=%2210%22 fill=%22%232F9CB0%22/><path d=%22M20 10c-4 0-7 3-7 7 0 2.5 1 4 1.8 7 1 3.8 1.7 9.5 3 11.5.8 1.3 1.6 1.5 2.2 1.5s1.4-.2 2.2-1.5c1.3-2 2-7.7 3-11.5.8-3 1.8-4.5 1.8-7 0-4-3-7-7-7z%22 fill=%22%230D1B26%22/><circle cx=%2229.5%22 cy=%2210.5%22 r=%224%22 fill=%22%238B7FD1%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -140,6 +140,7 @@ header{
 
 /* ---------- Section shell ---------- */
 section{padding:96px 0}
+#resultados{background-color:var(--cream);background-image:linear-gradient(180deg,rgba(13,27,38,.9),rgba(13,27,38,.82) 40%,rgba(13,27,38,.94)),url('https://commons.wikimedia.org/wiki/Special:FilePath/USVI%20IMG%205333%20-%20Modern%20dental%20chair%20in%20a%20serene%20clinic%20adorned%20with%20whimsical%20face%20masks%20on%20the%20walls.jpg?width=1600');background-size:cover;background-position:center}
 .section-head{max-width:640px;margin:0 auto 52px;text-align:center}
 .section-head h2{font-size:clamp(28px,3.6vw,40px);margin-top:14px}
 .section-head p{color:var(--ink-soft);margin-top:14px;font-size:16px}
@@ -158,7 +159,7 @@ section{padding:96px 0}
 .treat-card p{color:var(--ink-soft);font-size:14.5px}
 
 /* ---------- Steps ---------- */
-.steps-wrap{background:var(--cream-2)}
+.steps-wrap{position:relative;background-color:var(--cream-2);background-image:linear-gradient(180deg,rgba(13,27,38,.93),rgba(18,38,54,.88)),url('https://commons.wikimedia.org/wiki/Special:FilePath/EFTA00001864%20-%20Modern%20dental%20clinic%20with%20a%20yellow%20and%20white%20chair%20medical%20equipment%20and%20a%20framed%20picture%20of%20traditional%20architecture%20on%20the%20wall.jpg?width=1600');background-size:cover;background-position:center}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
 .step{position:relative;padding-left:0}
 .step-num{font-family:'Fraunces',serif;font-size:52px;color:transparent;font-weight:500;line-height:1;margin-bottom:14px;-webkit-text-stroke:1.5px var(--gold)}
@@ -194,7 +195,7 @@ section{padding:96px 0}
 .faq-item.open .faq-a{opacity:1}
 
 /* ---------- CTA ---------- */
-.cta{background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal) 65%,#4E4483 130%);border-radius:20px;padding:56px;
+.cta{background-image:linear-gradient(135deg,rgba(27,90,104,.93) 0%,rgba(47,156,176,.9) 65%,rgba(78,68,131,.93) 130%),url('https://commons.wikimedia.org/wiki/Special:FilePath/A_dental_professional_in_protective_gear_is_preparing_to_use_an_orange_dental_device.jpg?width=1400');background-size:cover;background-position:center;border-radius:20px;padding:56px;
   display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;color:#fff}
 .cta h2{color:#fff;font-size:clamp(26px,3.2vw,34px)}
 .cta p{color:#DCE9E2;margin-top:12px;font-size:15.5px;max-width:50ch}
@@ -221,6 +222,13 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 }
 .wa-float:hover{transform:scale(1.08)}
 
+/* ---------- Preloader ---------- */
+#preloader{position:fixed;inset:0;z-index:9999;background:var(--cream);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease;opacity:1}
+#preloader.hidden{opacity:0;pointer-events:none}
+#preloader .pl-mark{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;animation:pl-pulse 1.4s ease-in-out infinite}
+#preloader .pl-mark svg{width:64px;height:64px}
+@keyframes pl-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.9);opacity:.6}}
+
 @media (max-width:920px){
   .hero-grid,.treat-grid,.steps,.test-grid,.stats-grid,.foot-grid{grid-template-columns:1fr}
   .nav-links{display:none}
@@ -230,6 +238,12 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
+
+<div id="preloader" aria-hidden="true">
+  <div class="pl-mark">
+    <svg viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#2F9CB0"/><path d="M20 10c-4 0-7 3-7 7 0 2.5 1 4 1.8 7 1 3.8 1.7 9.5 3 11.5.8 1.3 1.6 1.5 2.2 1.5s1.4-.2 2.2-1.5c1.3-2 2-7.7 3-11.5.8-3 1.8-4.5 1.8-7 0-4-3-7-7-7z" fill="#0D1B26"/><circle cx="29.5" cy="10.5" r="4" fill="#8B7FD1"/></svg>
+  </div>
+</div>
 
 <header>
   <div class="wrap nav">
@@ -479,6 +493,59 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 </a>
 
 <script>
+(function(){
+  // Preloader: minimum 4s, and never hides before every image (bg + <img>) has loaded
+  var pre = document.getElementById('preloader');
+  var start = Date.now();
+  var MIN = 4000;
+  function collectBgUrls(){
+    var urls = [];
+    document.querySelectorAll('[style*="background-image"]').forEach(function(el){
+      var m = el.style.backgroundImage.match(/url\(["']?([^"')]+)["']?\)/);
+      if (m) urls.push(m[1]);
+    });
+    document.querySelectorAll('link[rel="stylesheet"]');
+    return urls;
+  }
+  function collectCssBgUrls(){
+    var urls = [];
+    var sheets = ['#resultados','.steps-wrap','.cta'];
+    sheets.forEach(function(sel){
+      var el = document.querySelector(sel);
+      if (!el) return;
+      var bg = getComputedStyle(el).backgroundImage || '';
+      var matches = bg.match(/url\(["']?([^"')]+)["']?\)/g) || [];
+      matches.forEach(function(m){
+        var mm = m.match(/url\(["']?([^"')]+)["']?\)/);
+        if (mm) urls.push(mm[1]);
+      });
+    });
+    return urls;
+  }
+  function preloadAll(){
+    var imgs = Array.from(document.images).map(function(img){
+      if (img.complete) return Promise.resolve();
+      return new Promise(function(res){ img.addEventListener('load', res); img.addEventListener('error', res); });
+    });
+    var bgs = collectBgUrls().concat(collectCssBgUrls()).map(function(src){
+      return new Promise(function(res){
+        var im = new Image();
+        im.onload = res; im.onerror = res;
+        im.src = src;
+      });
+    });
+    return Promise.all(imgs.concat(bgs));
+  }
+  function finish(){
+    var wait = Math.max(0, MIN - (Date.now() - start));
+    setTimeout(function(){
+      pre.classList.add('hidden');
+      setTimeout(function(){ pre.remove(); }, 650);
+    }, wait);
+  }
+  preloadAll().then(finish);
+})();
+
 (function(){
   // Reveal on scroll — plain IntersectionObserver, elements are static (never cloned/replaced)
   var els = Array.from(document.querySelectorAll('[data-reveal]'));
