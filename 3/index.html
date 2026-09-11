@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bianchi Odontologia</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><rect width=%2240%22 height=%2240%22 rx=%2210%22 fill=%22%232F9CB0%22/><path d=%22M20 10c-4 0-7 3-7 7 0 2.5 1 4 1.8 7 1 3.8 1.7 9.5 3 11.5.8 1.3 1.6 1.5 2.2 1.5s1.4-.2 2.2-1.5c1.3-2 2-7.7 3-11.5.8-3 1.8-4.5 1.8-7 0-4-3-7-7-7z%22 fill=%22%230D1B26%22/><circle cx=%2229.5%22 cy=%2210.5%22 r=%224%22 fill=%22%238B7FD1%22/></svg>">
+<link rel="icon" href="https://commons.wikimedia.org/wiki/Special:FilePath/USVI%20IMG%205333%20-%20Modern%20dental%20chair%20in%20a%20serene%20clinic%20adorned%20with%20whimsical%20face%20masks%20on%20the%20walls.jpg?width=64">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -60,7 +60,7 @@ header{
 }
 .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
 .logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:38px;height:38px;flex:none}
+.logo-mark{width:38px;height:38px;flex:none;overflow:hidden}
 .logo-text{font-family:'Fraunces',serif;font-size:19px;letter-spacing:.01em;line-height:1.1}
 .logo-text small{display:block;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;color:var(--ink-soft);text-transform:uppercase;margin-top:2px}
 .nav-links{display:flex;gap:36px;font-size:14px;font-weight:600}
@@ -225,8 +225,8 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 /* ---------- Preloader ---------- */
 #preloader{position:fixed;inset:0;z-index:9999;background:var(--cream);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease;opacity:1}
 #preloader.hidden{opacity:0;pointer-events:none}
-#preloader .pl-mark{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;animation:pl-pulse 1.4s ease-in-out infinite}
-#preloader .pl-mark svg{width:64px;height:64px}
+#preloader .pl-mark{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;animation:pl-pulse 1.4s ease-in-out infinite;overflow:hidden}
+#preloader .pl-mark img{width:100%;height:100%;object-fit:cover}
 @keyframes pl-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.9);opacity:.6}}
 
 @media (max-width:920px){
@@ -241,18 +241,14 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 
 <div id="preloader" aria-hidden="true">
   <div class="pl-mark">
-    <svg viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#2F9CB0"/><path d="M20 10c-4 0-7 3-7 7 0 2.5 1 4 1.8 7 1 3.8 1.7 9.5 3 11.5.8 1.3 1.6 1.5 2.2 1.5s1.4-.2 2.2-1.5c1.3-2 2-7.7 3-11.5.8-3 1.8-4.5 1.8-7 0-4-3-7-7-7z" fill="#0D1B26"/><circle cx="29.5" cy="10.5" r="4" fill="#8B7FD1"/></svg>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/USVI%20IMG%205333%20-%20Modern%20dental%20chair%20in%20a%20serene%20clinic%20adorned%20with%20whimsical%20face%20masks%20on%20the%20walls.jpg?width=100" alt="" style="width:100%;height:100%;object-fit:cover">
   </div>
 </div>
 
 <header>
   <div class="wrap nav">
     <div class="logo">
-      <svg class="logo-mark" width="38" height="38" viewBox="0 0 40 40" style="border-radius:10px;flex:none">
-        <rect width="40" height="40" rx="10" fill="#2F9CB0"/>
-        <path d="M20 10c-4 0-7 3-7 7 0 2.5 1 4 1.8 7 1 3.8 1.7 9.5 3 11.5.8 1.3 1.6 1.5 2.2 1.5s1.4-.2 2.2-1.5c1.3-2 2-7.7 3-11.5.8-3 1.8-4.5 1.8-7 0-4-3-7-7-7z" fill="#0D1B26"/>
-        <circle cx="29.5" cy="10.5" r="4" fill="#8B7FD1"/>
-      </svg>
+      <img class="logo-mark" src="https://commons.wikimedia.org/wiki/Special:FilePath/USVI%20IMG%205333%20-%20Modern%20dental%20chair%20in%20a%20serene%20clinic%20adorned%20with%20whimsical%20face%20masks%20on%20the%20walls.jpg?width=100" alt="Logo" style="border-radius:10px;flex:none;object-fit:cover">
       <div class="logo-text">Bianchi<small>Odontologia</small></div>
     </div>
     <nav class="nav-links">
@@ -264,7 +260,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     <div class="nav-cta">
       <span class="nav-phone">(11) 4444-2288</span>
       <a class="btn btn-primary" href="https://wa.me/5511988887777" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.017 2.001c-5.514 0-9.983 4.469-9.983 9.983 0 1.763.463 3.485 1.343 5.003l-1.428 5.213 5.339-1.4a9.94 9.94 0 0 0 4.729 1.204h.004c5.514 0 9.983-4.469 9.983-9.983 0-2.667-1.038-5.174-2.925-7.062A9.937 9.937 0 0 0 12.017 2zm0 18.163h-.003a8.16 8.16 0 0 1-4.156-1.138l-.298-.177-3.168.831.846-3.089-.194-.317a8.147 8.147 0 0 1-1.248-4.29c0-4.5 3.663-8.163 8.164-8.163 2.18 0 4.229.85 5.77 2.393a8.108 8.108 0 0 1 2.39 5.775c0 4.5-3.663 8.163-8.163 8.163z"/></svg>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/WhatsApp.svg?width=32" width="16" height="16" alt="WhatsApp" style="object-fit:contain">
         WhatsApp
       </a>
     </div>
@@ -281,7 +277,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
       <p class="lead">Planejamento digital, materiais de alta performance e acompanhamento próximo — do primeiro contato até o resultado final.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://wa.me/5511988887777" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.017 2.001c-5.514 0-9.983 4.469-9.983 9.983 0 1.763.463 3.485 1.343 5.003l-1.428 5.213 5.339-1.4a9.94 9.94 0 0 0 4.729 1.204h.004c5.514 0 9.983-4.469 9.983-9.983 0-2.667-1.038-5.174-2.925-7.062A9.937 9.937 0 0 0 12.017 2zm0 18.163h-.003a8.16 8.16 0 0 1-4.156-1.138l-.298-.177-3.168.831.846-3.089-.194-.317a8.147 8.147 0 0 1-1.248-4.29c0-4.5 3.663-8.163 8.164-8.163 2.18 0 4.229.85 5.77 2.393a8.108 8.108 0 0 1 2.39 5.775c0 4.5-3.663 8.163-8.163 8.163z"/></svg>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/WhatsApp.svg?width=32" width="16" height="16" alt="WhatsApp" style="object-fit:contain">
           Agendar avaliação
         </a>
         <a class="btn btn-ghost" href="tel:+551144442288">Ligar agora</a>
@@ -443,7 +439,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
       </div>
       <div class="cta-actions">
         <a class="btn btn-primary" href="https://wa.me/5511988887777" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="#12241D"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.017 2.001c-5.514 0-9.983 4.469-9.983 9.983 0 1.763.463 3.485 1.343 5.003l-1.428 5.213 5.339-1.4a9.94 9.94 0 0 0 4.729 1.204h.004c5.514 0 9.983-4.469 9.983-9.983 0-2.667-1.038-5.174-2.925-7.062A9.937 9.937 0 0 0 12.017 2zm0 18.163h-.003a8.16 8.16 0 0 1-4.156-1.138l-.298-.177-3.168.831.846-3.089-.194-.317a8.147 8.147 0 0 1-1.248-4.29c0-4.5 3.663-8.163 8.164-8.163 2.18 0 4.229.85 5.77 2.393a8.108 8.108 0 0 1 2.39 5.775c0 4.5-3.663 8.163-8.163 8.163z"/></svg>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/WhatsApp.svg?width=32" width="16" height="16" alt="WhatsApp" style="object-fit:contain">
           Falar no WhatsApp
         </a>
         <a class="btn btn-ghost" href="tel:+551144442288">Ligar · (11) 4444-2288</a>
@@ -458,7 +454,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     <div class="foot-grid">
       <div class="foot-col">
         <div class="logo" style="margin-bottom:14px">
-          <svg class="logo-mark" width="38" height="38" viewBox="0 0 40 40" style="border-radius:10px;flex:none">
+          <img class="logo-mark" src="https://commons.wikimedia.org/wiki/Special:FilePath/USVI%20IMG%205333%20-%20Modern%20dental%20chair%20in%20a%20serene%20clinic%20adorned%20with%20whimsical%20face%20masks%20on%20the%20walls.jpg?width=100" alt="Logo" style="border-radius:10px;flex:none;object-fit:cover">
         <rect width="40" height="40" rx="10" fill="#2F9CB0"/>
         <path d="M20 10c-4 0-7 3-7 7 0 2.5 1 4 1.8 7 1 3.8 1.7 9.5 3 11.5.8 1.3 1.6 1.5 2.2 1.5s1.4-.2 2.2-1.5c1.3-2 2-7.7 3-11.5.8-3 1.8-4.5 1.8-7 0-4-3-7-7-7z" fill="#0D1B26"/>
         <circle cx="29.5" cy="10.5" r="4" fill="#8B7FD1"/>
@@ -489,7 +485,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 </footer>
 
 <a class="wa-float" href="https://wa.me/5511988887777" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.017 2.001c-5.514 0-9.983 4.469-9.983 9.983 0 1.763.463 3.485 1.343 5.003l-1.428 5.213 5.339-1.4a9.94 9.94 0 0 0 4.729 1.204h.004c5.514 0 9.983-4.469 9.983-9.983 0-2.667-1.038-5.174-2.925-7.062A9.937 9.937 0 0 0 12.017 2zm0 18.163h-.003a8.16 8.16 0 0 1-4.156-1.138l-.298-.177-3.168.831.846-3.089-.194-.317a8.147 8.147 0 0 1-1.248-4.29c0-4.5 3.663-8.163 8.164-8.163 2.18 0 4.229.85 5.77 2.393a8.108 8.108 0 0 1 2.39 5.775c0 4.5-3.663 8.163-8.163 8.163z"/></svg>
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/WhatsApp.svg?width=48" width="28" height="28" alt="WhatsApp" style="object-fit:contain">
 </a>
 
 <script>

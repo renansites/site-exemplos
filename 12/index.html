@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cerqueira Contabilidade</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><rect x=%221%22 y=%221%22 width=%2238%22 height=%2238%22 rx=%226%22 fill=%22%231E3E68%22 stroke=%22%2334C39B%22 stroke-width=%222%22/><g transform=%22translate(8,8)%22 fill=%22%2334C39B%22><rect x=%223%22 y=%2213%22 width=%224.5%22 height=%228%22 rx=%221%22/><rect x=%229.75%22 y=%227%22 width=%224.5%22 height=%2214%22 rx=%221%22/><rect x=%2216.5%22 y=%223%22 width=%224.5%22 height=%2218%22 rx=%221%22/></g></svg>">
+<link rel="icon" href="https://commons.wikimedia.org/wiki/Special:FilePath/Office%20Building%20Off%20Old%20Street%20(215200145).jpeg?width=64">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,7 +39,8 @@ img{max-width:100%;display:block}
 header{position:sticky;top:0;z-index:500;background:rgba(11,27,51,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
 .logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:38px;height:38px;border-radius:4px;background:var(--navy-light);color:var(--emerald);display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-size:17px;flex:none;border:1px solid var(--emerald)}
+.logo-mark{width:38px;height:38px;border-radius:4px;background:var(--navy-light);color:var(--emerald);display:flex;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-size:17px;flex:none;border:1px solid var(--emerald);overflow:hidden}
+.logo-mark img{width:100%;height:100%;object-fit:cover}
 .logo-text{font-family:'Source Serif 4',serif;font-size:19px}
 .nav-links{display:flex;gap:34px;font-size:13px;font-weight:600}
 .nav-links a{color:var(--ink-soft);transition:color .2s ease}
@@ -49,7 +50,7 @@ header{position:sticky;top:0;z-index:500;background:rgba(11,27,51,.92);backdrop-
 .hero-glow{position:absolute;top:-180px;right:-180px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(52,195,155,.16),transparent 70%);pointer-events:none}
 .hero-glow2{position:absolute;bottom:-190px;left:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(30,62,104,.4),transparent 70%);pointer-events:none}
 .hero-visual{position:relative;border-radius:6px;overflow:hidden;background:linear-gradient(155deg,var(--navy-light),var(--bg-2));border:1px solid var(--line);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
-.hero-visual svg{width:48%;opacity:.85}
+.hero-visual img.hero-visual-img{width:48%;opacity:.85;border-radius:4px;object-fit:cover}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
 .hero h1{font-size:clamp(38px,5.2vw,56px);line-height:1.08;margin:20px 0 22px}
 .hero h1 em{font-style:italic;color:var(--emerald)}
@@ -119,8 +120,8 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 
 #preloader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease;opacity:1}
 #preloader.hidden{opacity:0;pointer-events:none}
-#preloader .pl-mark{width:64px;height:64px;border-radius:6px;background:var(--navy-light);border:2px solid var(--emerald);display:flex;align-items:center;justify-content:center;animation:pl-pulse 1.4s ease-in-out infinite}
-#preloader .pl-mark svg{width:28px;height:28px}
+#preloader .pl-mark{width:64px;height:64px;border-radius:6px;background:var(--navy-light);border:2px solid var(--emerald);display:flex;align-items:center;justify-content:center;animation:pl-pulse 1.4s ease-in-out infinite;overflow:hidden}
+#preloader .pl-mark img{width:28px;height:28px;object-fit:cover;border-radius:4px}
 @keyframes pl-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.88);opacity:.65}}
 
 @media (max-width:920px){
@@ -134,12 +135,12 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 <body>
 
 <div id="preloader" aria-hidden="true">
-  <div class="pl-mark"><svg viewBox="0 0 24 24" fill="#34C39B"><rect x="3" y="13" width="4.5" height="8" rx="1"/><rect x="9.75" y="7" width="4.5" height="14" rx="1"/><rect x="16.5" y="3" width="4.5" height="18" rx="1"/></svg></div>
+  <div class="pl-mark"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Office%20Building%20Off%20Old%20Street%20(215200145).jpeg?width=100" alt="" style="width:100%;height:100%;object-fit:cover"></div>
 </div>
 
 <header>
   <div class="wrap nav">
-    <div class="logo"><div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="13" width="4.5" height="8" rx="1"/><rect x="9.75" y="7" width="4.5" height="14" rx="1"/><rect x="16.5" y="3" width="4.5" height="18" rx="1"/></svg></div><div class="logo-text">Cerqueira Contabilidade</div></div>
+    <div class="logo"><div class="logo-mark"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Office%20Building%20Off%20Old%20Street%20(215200145).jpeg?width=100" alt="Logo" style="width:100%;height:100%;object-fit:cover"></div><div class="logo-text">Cerqueira Contabilidade</div></div>
     <nav class="nav-links">
       <a href="#servicos">Serviços</a>
       <a href="#como-funciona">Como funciona</a>
@@ -164,13 +165,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
     </div>
     <div data-reveal="right">
       <div class="hero-visual">
-        <svg viewBox="0 0 200 200" fill="none">
-          <rect x="50" y="40" width="100" height="130" rx="4" fill="#1E3E68"/>
-          <rect x="65" y="60" width="70" height="8" fill="#34C39B"/>
-          <rect x="65" y="80" width="50" height="8" fill="#A9B7CC" opacity=".6"/>
-          <rect x="65" y="100" width="60" height="8" fill="#A9B7CC" opacity=".6"/>
-          <rect x="65" y="130" width="70" height="24" rx="4" fill="#34C39B" opacity=".85"/>
-        </svg>
+        <img class="hero-visual-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Office%20Building%20Off%20Old%20Street%20(215200145).jpeg?width=400" alt="">
         <div class="hero-card"><div class="dot">%</div><div><b>Impostos em dia</b><span>Sem surpresa no fim do mês</span></div></div>
       </div>
     </div>
@@ -266,7 +261,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="13" width="4.5" height="8" rx="1"/><rect x="9.75" y="7" width="4.5" height="14" rx="1"/><rect x="16.5" y="3" width="4.5" height="18" rx="1"/></svg></div><div class="logo-text">Cerqueira Contabilidade</div></div><span>Contabilidade empresarial · São Paulo, SP</span></div>
+      <div class="foot-col"><div class="logo" style="margin-bottom:14px"><div class="logo-mark"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Office%20Building%20Off%20Old%20Street%20(215200145).jpeg?width=100" alt="Logo" style="width:100%;height:100%;object-fit:cover"></div><div class="logo-text">Cerqueira Contabilidade</div></div><span>Contabilidade empresarial · São Paulo, SP</span></div>
       <div class="foot-col"><h4>Navegação</h4><a href="#servicos">Serviços</a><a href="#como-funciona">Como funciona</a><a href="#depoimentos">Depoimentos</a><a href="#duvidas">Dúvidas frequentes</a></div>
       <div class="foot-col"><h4>Contato</h4><a href="tel:+551133332222">(11) 3333-2222</a><a href="https://wa.me/5511944440000" target="_blank" rel="noopener">WhatsApp (11) 94444-0000</a><span>Rua Barão de Itapetininga, 200 · São Paulo, SP</span></div>
     </div>
@@ -275,7 +270,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--line)}
 </footer>
 
 <a class="wa-float" href="https://wa.me/5511944440000" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.017 2.001c-5.514 0-9.983 4.469-9.983 9.983 0 1.763.463 3.485 1.343 5.003l-1.428 5.213 5.339-1.4a9.94 9.94 0 0 0 4.729 1.204h.004c5.514 0 9.983-4.469 9.983-9.983 0-2.667-1.038-5.174-2.925-7.062A9.937 9.937 0 0 0 12.017 2zm0 18.163h-.003a8.16 8.16 0 0 1-4.156-1.138l-.298-.177-3.168.831.846-3.089-.194-.317a8.147 8.147 0 0 1-1.248-4.29c0-4.5 3.663-8.163 8.164-8.163 2.18 0 4.229.85 5.77 2.393a8.108 8.108 0 0 1 2.39 5.775c0 4.5-3.663 8.163-8.163 8.163z"/></svg>
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/WhatsApp.svg?width=64" alt="WhatsApp" style="width:30px;height:30px;object-fit:contain">
 </a>
 
 <script>
